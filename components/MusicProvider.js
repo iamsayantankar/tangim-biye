@@ -11,6 +11,7 @@ import {
 import { usePathname } from "next/navigation";
 import { musicSrc } from "@/lib/data";
 import MusicPlayer from "./MusicPlayer";
+import ContactButton from "./ContactButton";
 
 const MusicContext = createContext(null);
 export const useMusic = () => useContext(MusicContext);
@@ -103,6 +104,7 @@ export default function MusicProvider({ children }) {
     <MusicContext.Provider value={{ playing, play, toggle }}>
       <audio ref={audioRef} src={musicSrc} loop preload="auto" />
       {children}
+      <ContactButton />
       <MusicPlayer playing={playing} onToggle={toggle} accent={accent} />
     </MusicContext.Provider>
   );

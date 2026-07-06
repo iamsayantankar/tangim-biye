@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { lead, partner } from "@/lib/data";
+import { lead, partner, invite } from "@/lib/data";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
 
@@ -91,6 +91,9 @@ export default function Couple() {
         <h2 className="mt-2 font-display text-3xl text-rose-900 sm:text-4xl">
           The Beautiful Souls
         </h2>
+        <p className="mx-auto mt-4 max-w-xl font-serif text-lg italic text-ink/65">
+          {invite.cordial}
+        </p>
       </Reveal>
 
       <Ornament className="my-8" color="#cf2b6b" />

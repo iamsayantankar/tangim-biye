@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { events, venue } from "@/lib/data";
+import { events, venue, invite } from "@/lib/data";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
 
@@ -70,8 +70,8 @@ export default function WeddingSection() {
             </div>
           </div>
 
-          <p className="mt-8 border-t border-rose-100 pt-5 text-center font-serif italic text-ink/55">
-            {e.note} — your presence will make our day complete.
+          <p className="mt-8 border-t border-rose-100 pt-5 text-center font-serif italic text-ink/60">
+            {invite.honour}
           </p>
         </div>
       </Reveal>

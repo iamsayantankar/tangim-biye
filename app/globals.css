@@ -54,13 +54,18 @@ body {
       inset 0 1px 1px rgba(255, 255, 255, 0.9);
   }
 
-  /* Animated shimmering gradient text */
+  /* Animated shimmering gradient text.
+     The gradient is clipped to the text; tall script swashes/descenders
+     extend past the tight line-box, so we pad the block (padding grows the
+     background paint area) to guarantee no glyph is ever cropped. */
   .shimmer-text {
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    line-height: 1.25;
+    padding-block: 0.22em;
     @apply animate-shimmer;
   }
 
