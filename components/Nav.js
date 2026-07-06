@@ -8,8 +8,8 @@ import { lead, partner } from "@/lib/data";
 const LINKS = [
   { label: "Home", href: "#home" },
   { label: "Couple", href: "#couple" },
-  { label: "Wedding", href: "#wedding" },
   { label: "Haldi", href: "#haldi" },
+  { label: "Wedding", href: "#wedding" },
   { label: "Venue", href: "#venue" },
 ];
 

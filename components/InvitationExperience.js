@@ -44,8 +44,9 @@ export default function InvitationExperience() {
         <Hero />
         <Countdown />
         <Couple />
-        <WeddingSection />
+        {/* Haldi (13th Aug) comes before the Wedding (14th Aug) */}
         <HaldiSection />
+        <WeddingSection />
         <Venue />
         <Blessing />
       </main>
