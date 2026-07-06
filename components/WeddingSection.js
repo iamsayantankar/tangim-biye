@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { events, venue, invite } from "@/lib/data";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
+import { CoupleFigure } from "./Illustrations";
 
 export default function WeddingSection() {
   const e = events.wedding;
@@ -30,6 +31,14 @@ export default function WeddingSection() {
             animate={{ x: ["0%", "400%"] }}
             transition={{ duration: 6, repeat: Infinity, repeatDelay: 3 }}
           />
+
+          <motion.div
+            className="relative mx-auto mb-4 w-36 sm:w-44"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <CoupleFigure className="h-full w-full" />
+          </motion.div>
 
           <div className="grid gap-8 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
             {/* Date */}

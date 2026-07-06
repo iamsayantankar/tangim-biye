@@ -70,6 +70,8 @@ module.exports = {
           "linear-gradient(110deg, #a87b39 0%, #d4af6a 30%, #c69749 55%, #e2c886 75%, #a87b39 100%)",
         "marigold-sheen":
           "linear-gradient(110deg, #9a5808 0%, #c2700b 22%, #f59e0b 45%, #ea8c0a 66%, #c2700b 86%, #7a4606 100%)",
+        "mehendi-sheen":
+          "linear-gradient(110deg, #14532d 0%, #166534 22%, #22c55e 45%, #15803d 66%, #166534 86%, #14532d 100%)",
       },
       keyframes: {
         shimmer: {

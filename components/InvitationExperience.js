@@ -12,6 +12,7 @@ import Countdown from "./Countdown";
 import Couple from "./Couple";
 import WeddingSection from "./WeddingSection";
 import HaldiSection from "./HaldiSection";
+import MehendiSection from "./MehendiSection";
 import Venue from "./Venue";
 import Blessing from "./Blessing";
 import Footer from "./Footer";
@@ -44,8 +45,9 @@ export default function InvitationExperience() {
         <Hero />
         <Countdown />
         <Couple />
-        {/* Haldi (13th Aug) comes before the Wedding (14th Aug) */}
+        {/* Chronological: Haldi (13th, 7 PM) → Mehendi (13th, 9 PM) → Wedding (14th) */}
         <HaldiSection />
+        <MehendiSection />
         <WeddingSection />
         <Venue />
         <Blessing />

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { events, haldiVenue } from "@/lib/data";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
+import { HaldiBowl } from "./Illustrations";
 
 export default function HaldiSection() {
   const e = events.haldi;
@@ -49,6 +50,13 @@ export default function HaldiSection() {
 
         <Reveal from="scale">
           <div className="glass-gold mx-auto max-w-xl px-7 py-9">
+            <motion.div
+              className="mx-auto -mt-2 mb-1 w-28 sm:w-32"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <HaldiBowl className="h-full w-full" />
+            </motion.div>
             <div className="flex flex-col items-center justify-center gap-2">
               <p className="font-body text-sm uppercase tracking-[0.25em] text-marigold-600">
                 {e.day} Evening

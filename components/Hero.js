@@ -34,46 +34,60 @@ function Sparkle({ l, t, s, d }) {
   );
 }
 
-function DateBadge({ label, date, place, accent }) {
-  const gold = accent === "marigold";
+const BADGE = {
+  marigold: {
+    bg: "linear-gradient(135deg,#fff8e6,#fde68a)",
+    border: "1px solid #f7cf6b",
+    shadow:
+      "0 14px 32px -16px rgba(234,140,10,.6), inset 0 1px 1px rgba(255,255,255,.85)",
+    pill: "linear-gradient(135deg,#fbbf24,#ea8c0a)",
+    text: "text-saffron-800",
+  },
+  green: {
+    bg: "linear-gradient(135deg,#e9fbef,#bbf7d0)",
+    border: "1px solid #86efac",
+    shadow:
+      "0 14px 32px -16px rgba(21,128,61,.45), inset 0 1px 1px rgba(255,255,255,.85)",
+    pill: "linear-gradient(135deg,#34d399,#15803d)",
+    text: "text-emerald-800",
+  },
+  rose: {
+    bg: "linear-gradient(135deg,#fff1f7,#fbcfe0)",
+    border: "1px solid #f5a6c3",
+    shadow:
+      "0 14px 32px -16px rgba(207,43,107,.55), inset 0 1px 1px rgba(255,255,255,.85)",
+    pill: "linear-gradient(135deg,#f072a3,#cf2b6b)",
+    text: "text-rose-800",
+  },
+};
+
+function DateBadge({ label, date, sub, accent }) {
+  const c = BADGE[accent] || BADGE.rose;
   return (
     <motion.div
       whileHover={{ y: -3, scale: 1.02 }}
-      className="relative flex-1 overflow-hidden rounded-2xl px-5 py-3.5 text-center"
-      style={{
-        background: gold
-          ? "linear-gradient(135deg,#fff8e6,#fde68a)"
-          : "linear-gradient(135deg,#fff1f7,#fbcfe0)",
-        border: gold ? "1px solid #f7cf6b" : "1px solid #f5a6c3",
-        boxShadow: gold
-          ? "0 14px 32px -16px rgba(234,140,10,.65), inset 0 1px 1px rgba(255,255,255,.85)"
-          : "0 14px 32px -16px rgba(207,43,107,.6), inset 0 1px 1px rgba(255,255,255,.85)",
-      }}
+      className="relative flex-1 overflow-hidden rounded-2xl px-4 py-3.5 text-center"
+      style={{ background: c.bg, border: c.border, boxShadow: c.shadow }}
     >
-      {/* glossy sweep */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 skew-x-12 bg-white/50 blur-md"
         style={{ animation: "shimmer 6s linear infinite" }}
       />
       <span
-        className="relative inline-block rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-[0.22em] text-white"
-        style={{
-          background: gold
-            ? "linear-gradient(135deg,#fbbf24,#ea8c0a)"
-            : "linear-gradient(135deg,#f072a3,#cf2b6b)",
-        }}
+        className="relative inline-block rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white"
+        style={{ background: c.pill }}
       >
         {label}
       </span>
       <p
-        className={`relative mt-2 font-display text-base font-semibold sm:text-lg ${
-          gold ? "text-saffron-800" : "text-rose-800"
-        }`}
+        className={`relative mt-1.5 font-display text-sm font-semibold sm:text-base ${c.text}`}
       >
         {date}
       </p>
-      <p className="relative mt-0.5 font-body text-xs text-ink/55">{place}</p>
+      <p className="relative mt-0.5 font-body text-[11px] leading-snug text-ink/55">
+        {sub}
+      </p>
     </motion.div>
   );
 }
@@ -192,9 +206,9 @@ export default function Hero() {
               {lead.short}
             </motion.span>
             <motion.span
-              className="my-1 block font-display text-3xl text-rose-400 sm:text-4xl"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
+              className="my-2 block font-display text-6xl italic text-rose-400 sm:text-8xl"
+              initial={{ opacity: 0, scale: 0, rotate: -20 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
               &amp;
@@ -212,7 +226,7 @@ export default function Hero() {
 
         {/* Highlighted date badges — Haldi + Wedding, with place */}
         <motion.div
-          className="mx-auto mt-9 flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:flex-row sm:gap-4"
+          className="mx-auto mt-9 flex w-full max-w-4xl flex-col items-stretch justify-center gap-3 sm:flex-row sm:gap-3"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
@@ -220,13 +234,19 @@ export default function Hero() {
           <DateBadge
             label="Haldi"
             date={events.haldi.pretty}
-            place="At Our Residence · Aligunj, Midnapore"
+            sub="7:00 PM · At Our Residence, Aligunj"
             accent="marigold"
+          />
+          <DateBadge
+            label="Mehendi"
+            date={events.mehendi.pretty}
+            sub="9:00 PM · At Our Residence, Aligunj"
+            accent="green"
           />
           <DateBadge
             label="Wedding"
             date={events.wedding.pretty}
-            place="Parinoy The Banquet · Midnapore"
+            sub="7:30 PM · Parinoy The Banquet, Midnapore"
             accent="rose"
           />
         </motion.div>
