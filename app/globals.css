@@ -127,10 +127,10 @@ body {
       radial-gradient(100% 60% at 0% 100%, #fde68a 0%, transparent 55%),
       #fffdf5;
   }
-  .vignette-green {
+  .vignette-mehendi {
     background:
-      radial-gradient(120% 80% at 50% -10%, #dcfce7 0%, transparent 60%),
-      radial-gradient(100% 60% at 100% 100%, #bbf7d0 0%, transparent 55%),
-      #f5fff9;
+      radial-gradient(120% 80% at 50% -10%, #eef0d0 0%, transparent 60%),
+      radial-gradient(100% 60% at 100% 100%, #dcdfa6 0%, transparent 55%),
+      #fbfcf1;
   }
 }

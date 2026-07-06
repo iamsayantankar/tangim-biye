@@ -52,6 +52,19 @@ module.exports = {
           500: "#f97316",
           600: "#ea580c",
         },
+        // Mehendi — authentic olive / henna green
+        mehendi: {
+          50: "#f6f7ec",
+          100: "#e9ebcb",
+          200: "#d5d99a",
+          300: "#bdc266",
+          400: "#a3a83f",
+          500: "#858a2f",
+          600: "#6b6f24",
+          700: "#565a1f",
+          800: "#464a1d",
+          900: "#3c3f1c",
+        },
         cream: "#fffaf3",
         ink: "#3b2a33",
       },
@@ -71,7 +84,7 @@ module.exports = {
         "marigold-sheen":
           "linear-gradient(110deg, #9a5808 0%, #c2700b 22%, #f59e0b 45%, #ea8c0a 66%, #c2700b 86%, #7a4606 100%)",
         "mehendi-sheen":
-          "linear-gradient(110deg, #14532d 0%, #166534 22%, #22c55e 45%, #15803d 66%, #166534 86%, #14532d 100%)",
+          "linear-gradient(110deg, #3c3f1c 0%, #565a1f 22%, #858a2f 45%, #6b6f24 66%, #565a1f 86%, #3c3f1c 100%)",
       },
       keyframes: {
         shimmer: {

@@ -65,7 +65,7 @@ export default function Intro({ onOpen, accent = "rose" }) {
             {lead.initial}
           </span>
           <motion.span
-            className="text-3xl text-rose-400 sm:text-4xl"
+            className="font-display text-5xl italic text-rose-400 sm:text-6xl"
             animate={{ scale: [1, 1.18, 1] }}
             transition={{ duration: 1.6, repeat: Infinity }}
           >
@@ -82,7 +82,7 @@ export default function Intro({ onOpen, accent = "rose" }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.75, duration: 0.8 }}
         >
-          {lead.short} <span className="text-rose-500">&</span>{" "}
+          {lead.short} <span className="font-display italic text-rose-500">&</span>{" "}
           {partner.short}
         </motion.h1>
 

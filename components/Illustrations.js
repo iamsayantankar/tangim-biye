@@ -181,6 +181,244 @@ export function MehendiHand({ className = "" }) {
   );
 }
 
+/* ====== HALDI — couple in yellow with marigold garlands ====== */
+function Garland({ x, len }) {
+  const dots = [];
+  for (let y = 2; y < len; y += 11) dots.push(y);
+  return (
+    <g>
+      <line x1={x} y1="0" x2={x} y2={len} stroke="#6aa84f" strokeWidth="1" opacity="0.5" />
+      {dots.map((y, i) => (
+        <circle key={y} cx={x} cy={y} r="4.4" fill={i % 2 ? "#fbbf24" : "#f97316"} />
+      ))}
+    </g>
+  );
+}
+
+export function HaldiCouple({ className = "" }) {
+  return (
+    <svg viewBox="0 0 200 190" className={className} xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hc-yellow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fde047" />
+          <stop offset="1" stopColor="#f59e0b" />
+        </linearGradient>
+        <linearGradient id="hc-yellow2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fcd34d" />
+          <stop offset="1" stopColor="#ea8c0a" />
+        </linearGradient>
+      </defs>
+
+      {/* marigold garlands hanging from the top */}
+      <Garland x={18} len={70} />
+      <Garland x={40} len={52} />
+      <Garland x={160} len={52} />
+      <Garland x={182} len={70} />
+
+      {/* floor shadow */}
+      <ellipse cx="100" cy="178" rx="66" ry="7" fill="#ea8c0a" opacity="0.15" />
+
+      {/* ===== Groom (left) — yellow kurta ===== */}
+      <g>
+        <rect x="70" y="150" width="7" height="24" rx="3" fill="#efe6c8" />
+        <rect x="80" y="150" width="7" height="24" rx="3" fill="#efe6c8" />
+        <ellipse cx="73.5" cy="176" rx="5" ry="2.6" fill="#8a5a2b" />
+        <ellipse cx="83.5" cy="176" rx="5" ry="2.6" fill="#8a5a2b" />
+        <path d="M62 100 Q78 92 94 100 L99 156 Q78 162 57 156 Z" fill="url(#hc-yellow)" />
+        <path d="M78 96 L78 156" stroke="#c2700b" strokeWidth="1.4" opacity="0.6" />
+        {[112, 126, 140].map((y) => (
+          <circle key={y} cx="78" cy={y} r="1.6" fill="#c2700b" />
+        ))}
+        <rect x="74" y="88" width="8" height="10" fill="#e8b98f" />
+        <circle cx="78" cy="79" r="12" fill="#e8b98f" />
+        <path d="M66 76 Q78 60 90 76 Q78 70 66 76 Z" fill="#2b2028" />
+        {/* haldi smear on cheek */}
+        <circle cx="72" cy="82" r="2.2" fill="#f59e0b" opacity="0.8" />
+      </g>
+
+      {/* ===== Bride (right) — yellow lehenga ===== */}
+      <g>
+        <path d="M104 124 Q122 120 140 124 L148 172 Q122 180 96 172 Z" fill="url(#hc-yellow2)" />
+        <path d="M96 172 Q122 180 148 172" fill="none" stroke="#c2700b" strokeWidth="2.5" />
+        <path d="M112 100 Q122 96 132 100 L134 124 Q122 128 110 124 Z" fill="#f59e0b" />
+        <path
+          d="M108 74 Q122 56 136 74 Q142 100 138 124 L132 124 Q136 92 130 78 Q122 68 114 78 Q108 92 112 124 L106 124 Q102 100 108 74 Z"
+          fill="#fcd34d"
+          opacity="0.92"
+        />
+        <rect x="118" y="86" width="8" height="10" fill="#e8b98f" />
+        <circle cx="122" cy="78" r="11" fill="#e8b98f" />
+        <path d="M112 74 Q122 64 132 74 Q122 70 112 74 Z" fill="#2b2028" />
+        <circle cx="122" cy="70" r="1.6" fill="#c2185b" />
+        {/* haldi smear */}
+        <circle cx="128" cy="82" r="2.2" fill="#f59e0b" opacity="0.8" />
+        {/* jewellery */}
+        <path d="M116 92 Q122 96 128 92" stroke="#c2700b" strokeWidth="1.4" fill="none" />
+      </g>
+
+      {/* turmeric bowl (haldi bati) between them */}
+      <g transform="translate(100 158)">
+        <ellipse cx="0" cy="9" rx="15" ry="3" fill="#ea8c0a" opacity="0.2" />
+        <path d="M-12 0 Q-12 12 0 12 Q12 12 12 0 Z" fill="#b9650a" />
+        <ellipse cx="0" cy="0" rx="12" ry="3.4" fill="#e07d0a" />
+        <path d="M-8 -1 Q-2 -9 0 -6 Q4 -10 8 -1 Z" fill="#fde047" />
+        <ellipse cx="0" cy="-0.5" rx="9" ry="2.2" fill="#fbbf24" />
+        <rect x="8" y="-12" width="2.6" height="14" rx="1.3" transform="rotate(20 9 -5)" fill="#a1662f" />
+      </g>
+    </svg>
+  );
+}
+
+/* ====== MEHENDI — girl peeking over her henna hands + florals ====== */
+function Bloom({ x, y, s, c }) {
+  return (
+    <g transform={`translate(${x} ${y})`}>
+      {[0, 72, 144, 216, 288].map((d) => (
+        <ellipse
+          key={d}
+          cx="0"
+          cy={-s * 0.72}
+          rx={s * 0.42}
+          ry={s * 0.72}
+          fill={c}
+          transform={`rotate(${d})`}
+        />
+      ))}
+      <circle r={s * 0.34} fill="#f9c95b" />
+    </g>
+  );
+}
+
+function HennaPalm({ flip }) {
+  const henna = "#7c2d12";
+  return (
+    <g transform={flip ? "scale(-1,1)" : ""}>
+      {/* skin */}
+      <g stroke={henna} strokeWidth="1.4">
+        <path
+          d="M-15 12 Q-16 34 -6 42 Q4 48 14 42 Q24 34 23 12 Z"
+          fill="url(#mg-skin)"
+        />
+        <rect x="-13" y="-24" width="7" height="34" rx="3.4" fill="url(#mg-skin)" />
+        <rect x="-4" y="-30" width="7" height="40" rx="3.4" fill="url(#mg-skin)" />
+        <rect x="5" y="-26" width="7" height="36" rx="3.4" fill="url(#mg-skin)" />
+        <rect x="14" y="-18" width="6.5" height="28" rx="3.2" fill="url(#mg-skin)" />
+        <rect
+          x="-27"
+          y="8"
+          width="7"
+          height="22"
+          rx="3.4"
+          fill="url(#mg-skin)"
+          transform="rotate(-36 -23 19)"
+        />
+      </g>
+      {/* henna */}
+      <g fill={henna}>
+        <path d="M-13 -20 q3.5 -5 7 0 v2.5 h-7 z" />
+        <path d="M-4 -26 q3.5 -5 7 0 v2.5 h-7 z" />
+        <path d="M5 -22 q3.5 -5 7 0 v2.5 h-7 z" />
+        <circle cx="4" cy="20" r="2.6" />
+      </g>
+      <g stroke={henna} strokeWidth="1.1" fill="none">
+        <path d="M-9.5 -14 v18" />
+        <path d="M-0.5 -20 v22" />
+        <path d="M8.5 -16 v18" />
+        {[0, 45, 90, 135, 180, 225, 270, 315].map((d) => (
+          <ellipse key={d} cx="4" cy="12" rx="2.4" ry="5.2" transform={`rotate(${d} 4 20)`} />
+        ))}
+        <circle cx="4" cy="20" r="10.5" strokeDasharray="1.5 3" />
+        <path d="M-8 36 Q4 41 16 36" strokeWidth="1.6" />
+      </g>
+      {/* flower bracelet */}
+      <g>
+        {[-9, 0, 9, 18].map((x) => (
+          <circle key={x} cx={x} cy="40" r="3.4" fill="#ec4899" />
+        ))}
+        {[-9, 0, 9, 18].map((x) => (
+          <circle key={"c" + x} cx={x} cy="40" r="1.3" fill="#fde047" />
+        ))}
+      </g>
+    </g>
+  );
+}
+
+export function MehendiGirl({ className = "" }) {
+  return (
+    <svg viewBox="0 0 200 210" className={className} xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="mg-skin" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#f6d3b1" />
+          <stop offset="1" stopColor="#ecc196" />
+        </linearGradient>
+        <linearGradient id="mg-outfit" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fbbf24" />
+          <stop offset="1" stopColor="#ea8c0a" />
+        </linearGradient>
+      </defs>
+
+      {/* floral corners (top-left & bottom-right) */}
+      <g opacity="0.95">
+        <path d="M6 6 Q40 26 30 60" stroke="#4d7c2f" strokeWidth="2.5" fill="none" />
+        <Bloom x={12} y={12} s={12} c="#dc2626" />
+        <Bloom x={30} y={26} s={10} c="#ec4899" />
+        <Bloom x={22} y={44} s={9} c="#dc2626" />
+        <Bloom x={40} y={54} s={8} c="#f472b6" />
+        <path d="M194 204 Q160 184 170 150" stroke="#4d7c2f" strokeWidth="2.5" fill="none" />
+        <Bloom x={188} y={198} s={12} c="#dc2626" />
+        <Bloom x={170} y={184} s={10} c="#ec4899" />
+        <Bloom x={178} y={166} s={9} c="#dc2626" />
+        <Bloom x={160} y={156} s={8} c="#f472b6" />
+      </g>
+
+      {/* hair (back) */}
+      <path
+        d="M100 24 C66 24 56 52 56 88 C55 124 62 156 68 168 L80 160 C74 128 74 98 80 80 C86 62 92 56 100 56 C108 56 114 62 120 80 C126 98 126 128 120 160 L132 168 C138 156 145 124 144 88 C144 52 134 24 100 24 Z"
+        fill="#2b2028"
+      />
+
+      {/* outfit / shoulders + dupatta */}
+      <path d="M52 210 Q60 168 100 164 Q140 168 148 210 Z" fill="url(#mg-outfit)" />
+      <path d="M60 210 Q64 182 80 176" stroke="#ec4899" strokeWidth="6" fill="none" opacity="0.85" strokeLinecap="round" />
+      <path d="M140 210 Q136 182 120 176" stroke="#ec4899" strokeWidth="6" fill="none" opacity="0.85" strokeLinecap="round" />
+
+      {/* neck + face */}
+      <rect x="93" y="92" width="14" height="16" fill="#ecc196" />
+      <ellipse cx="100" cy="66" rx="29" ry="33" fill="url(#mg-skin)" />
+
+      {/* front hair / centre-part fringe */}
+      <path d="M71 60 C72 40 88 32 100 40 C112 32 128 40 129 60 C120 48 110 50 100 56 C90 50 80 48 71 60 Z" fill="#2b2028" />
+
+      {/* brows + eyes */}
+      <path d="M82 56 q6 -4 12 -1" stroke="#3b2a33" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+      <path d="M106 55 q6 -3 12 1" stroke="#3b2a33" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+      <ellipse cx="88" cy="63" rx="4.6" ry="3.2" fill="#fff" />
+      <ellipse cx="112" cy="63" rx="4.6" ry="3.2" fill="#fff" />
+      <circle cx="88.5" cy="63" r="2.2" fill="#3b2a33" />
+      <circle cx="111.5" cy="63" r="2.2" fill="#3b2a33" />
+
+      {/* bindi + maang tikka */}
+      <circle cx="100" cy="46" r="2" fill="#c2185b" />
+      <line x1="100" y1="34" x2="100" y2="42" stroke="#f9c95b" strokeWidth="1.4" />
+      <circle cx="100" cy="43" r="2.4" fill="#f9c95b" />
+
+      {/* earrings */}
+      <circle cx="71" cy="78" r="3" fill="#f9c95b" />
+      <path d="M68 80 q3 7 6 0 z" fill="#f9c95b" />
+      <circle cx="129" cy="78" r="3" fill="#f9c95b" />
+      <path d="M126 80 q3 7 6 0 z" fill="#f9c95b" />
+
+      {/* two henna hands raised over the lower face */}
+      <g transform="translate(83 96) rotate(-6)">
+        <HennaPalm />
+      </g>
+      <g transform="translate(117 96) rotate(6)">
+        <HennaPalm flip />
+      </g>
+    </svg>
+  );
+}
+
 /* ============ WEDDING — bride & groom couple ============ */
 export function CoupleFigure({ className = "" }) {
   return (

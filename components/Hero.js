@@ -44,12 +44,12 @@ const BADGE = {
     text: "text-saffron-800",
   },
   green: {
-    bg: "linear-gradient(135deg,#e9fbef,#bbf7d0)",
-    border: "1px solid #86efac",
+    bg: "linear-gradient(135deg,#f4f5db,#dcdfa6)",
+    border: "1px solid #bdc266",
     shadow:
-      "0 14px 32px -16px rgba(21,128,61,.45), inset 0 1px 1px rgba(255,255,255,.85)",
-    pill: "linear-gradient(135deg,#34d399,#15803d)",
-    text: "text-emerald-800",
+      "0 14px 32px -16px rgba(86,90,31,.45), inset 0 1px 1px rgba(255,255,255,.85)",
+    pill: "linear-gradient(135deg,#a3a83f,#565a1f)",
+    text: "text-mehendi-800",
   },
   rose: {
     bg: "linear-gradient(135deg,#fff1f7,#fbcfe0)",

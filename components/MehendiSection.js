@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { events, haldiVenue } from "@/lib/data";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
-import { MehendiHand } from "./Illustrations";
+import { MehendiGirl } from "./Illustrations";
 
 const FLOATERS = [
   { l: "9%", t: "20%", s: 30, d: 0 },
@@ -18,12 +18,12 @@ function Paisley({ size = 26 }) {
     <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
       <path
         d="M14 34 C2 28 4 12 16 8 C26 5 34 12 32 22 C30 30 22 32 20 26 C19 22 22 19 26 21"
-        stroke="#16a34a"
+        stroke="#6b6f24"
         strokeWidth="2"
         strokeLinecap="round"
         opacity="0.55"
       />
-      <circle cx="15" cy="14" r="2" fill="#16a34a" opacity="0.5" />
+      <circle cx="15" cy="14" r="2" fill="#6b6f24" opacity="0.5" />
     </svg>
   );
 }
@@ -33,7 +33,7 @@ export default function MehendiSection() {
   return (
     <section
       id="mehendi"
-      className="relative overflow-hidden vignette-green py-20 sm:py-28"
+      className="relative overflow-hidden vignette-mehendi py-20 sm:py-28"
     >
       <div className="pointer-events-none absolute inset-x-0 -top-1 h-24 bg-gradient-to-b from-cream to-transparent" />
 
@@ -51,38 +51,40 @@ export default function MehendiSection() {
 
       <div className="relative z-10 mx-auto max-w-3xl px-5 text-center">
         <Reveal>
-          <p className="eyebrow text-emerald-700">The Henna Night</p>
+          <p className="eyebrow text-mehendi-700">The Henna Night</p>
           <h2 className="mt-2 bg-mehendi-sheen shimmer-text font-script text-5xl sm:text-7xl">
-            Mehendi
+            Mehendi Night
           </h2>
           <p className="mt-2 font-serif text-lg italic text-ink/60">
             {e.tagline}
           </p>
         </Reveal>
 
-        <Ornament className="my-8" color="#15803d" />
+        <Ornament className="my-8" color="#565a1f" />
 
         <Reveal from="scale">
-          <div className="mx-auto max-w-xl rounded-[2rem] border border-emerald-200/80 bg-white/60 px-7 py-9 shadow-[0_18px_50px_-18px_rgba(21,128,61,0.35)] backdrop-blur-xl">
+          <div className="mx-auto max-w-xl rounded-[2rem] border border-mehendi-300/70 bg-white/60 px-7 py-9 shadow-[0_18px_50px_-18px_rgba(86,90,31,0.4)] backdrop-blur-xl">
             <motion.div
-              className="mx-auto -mt-2 mb-1 w-28 sm:w-32"
-              animate={{ rotate: [0, -4, 4, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="mx-auto -mt-3 mb-2 w-44 sm:w-52"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <MehendiHand className="h-full w-full" />
+              <MehendiGirl className="h-full w-full" />
             </motion.div>
             <div className="flex flex-col items-center justify-center gap-2">
-              <p className="font-body text-sm uppercase tracking-[0.25em] text-emerald-600">
+              <p className="font-body text-sm uppercase tracking-[0.25em] text-mehendi-600">
                 {e.day} Night
               </p>
-              <p className="font-display text-6xl font-bold text-emerald-700">
+              <p className="font-display text-6xl font-bold text-mehendi-700">
                 13
               </p>
-              <p className="font-display text-xl text-green-600">August 2026</p>
+              <p className="font-display text-xl text-mehendi-600">
+                August 2026
+              </p>
               <p className="mt-2 font-serif text-lg text-ink/70">
                 {e.time} · {e.note}
               </p>
-              <p className="mt-3 flex items-center justify-center gap-1.5 font-serif text-base text-emerald-700">
+              <p className="mt-3 flex items-center justify-center gap-1.5 font-serif text-base text-mehendi-700">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M3 11.2 12 4l9 7.2M5.5 9.8V20h13V9.8"
