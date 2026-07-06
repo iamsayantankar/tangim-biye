@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { events, venue, invite } from "@/lib/data";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
-import { CoupleFigure } from "./Illustrations";
 
 export default function WeddingSection() {
   const e = events.wedding;
@@ -22,67 +21,64 @@ export default function WeddingSection() {
 
       <Ornament className="my-8" color="#cf2b6b" />
 
-      <Reveal from="scale">
-        <div className="glass relative mx-auto max-w-3xl overflow-hidden px-7 py-10 sm:px-12">
-          {/* glossy sheen sweep */}
-          <motion.span
-            aria-hidden
-            className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 skew-x-12 bg-white/40 blur-xl"
-            animate={{ x: ["0%", "400%"] }}
-            transition={{ duration: 6, repeat: Infinity, repeatDelay: 3 }}
-          />
+      <div className="mx-auto grid max-w-4xl items-center gap-8 md:grid-cols-2">
+        {/* portrait of the couple */}
+        <Reveal from="scale">
+          <figure className="group relative mx-auto max-w-sm overflow-hidden rounded-[2rem] border-[5px] border-rose-200 shadow-[0_30px_75px_-28px_rgba(207,43,107,0.6)]">
+            <span className="pointer-events-none absolute inset-0 z-10 rounded-[calc(2rem-5px)] ring-1 ring-inset ring-white/40" />
+            <img
+              src="/img/marriage.webp"
+              alt="Nowrin & Azahar — the wedding"
+              width="1024"
+              height="1536"
+              loading="lazy"
+              className="block w-full transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+            />
+          </figure>
+        </Reveal>
 
-          <motion.div
-            className="relative mx-auto mb-4 w-36 sm:w-44"
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <CoupleFigure className="h-full w-full" />
-          </motion.div>
+        {/* details */}
+        <Reveal from="up">
+          <div className="glass relative overflow-hidden px-7 py-9 text-center">
+            <motion.span
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 skew-x-12 bg-white/40 blur-xl"
+              animate={{ x: ["0%", "400%"] }}
+              transition={{ duration: 6, repeat: Infinity, repeatDelay: 3 }}
+            />
+            <p className="font-body text-sm uppercase tracking-[0.25em] text-rose-500">
+              {e.day}
+            </p>
+            <p className="my-1 font-display text-7xl font-bold text-rose-700">
+              14
+            </p>
+            <p className="font-display text-xl text-rose-800">August 2026</p>
 
-          <div className="grid gap-8 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
-            {/* Date */}
-            <div className="text-center">
-              <p className="font-body text-sm uppercase tracking-[0.25em] text-rose-500">
-                {e.day}
-              </p>
-              <p className="my-1 font-display text-6xl font-bold text-rose-700">
-                14
-              </p>
-              <p className="font-display text-xl text-rose-800">August 2026</p>
-            </div>
+            <div className="mx-auto my-4 h-px w-16 bg-rose-200" />
 
-            <div className="mx-auto hidden h-24 w-px bg-rose-200 sm:block" />
-
-            {/* Time + venue */}
-            <div className="space-y-4 text-center sm:text-left">
-              <div className="flex items-center justify-center gap-2 sm:justify-start">
-                <Clock />
-                <span className="font-serif text-lg text-ink/75">{e.time}</span>
-              </div>
-              <div className="flex items-start justify-center gap-2 sm:justify-start">
-                <Pin />
-                <span className="font-serif text-lg leading-snug text-ink/75">
-                  <span className="font-semibold text-rose-800">
-                    {venue.name}
-                  </span>
-                  <br />
-                  {venue.lines[1]}
-                </span>
-              </div>
-              <a
-                href="#venue"
-                className="btn-glossy mt-2 !px-6 !py-2.5 text-xs"
-              >
-                View Venue & Map
-              </a>
-            </div>
+            <p className="flex items-center justify-center gap-2 font-serif text-lg text-ink/75">
+              <Clock />
+              {e.time}
+            </p>
+            <p className="mt-2 flex items-start justify-center gap-2 font-serif text-lg leading-snug text-ink/75">
+              <Pin />
+              <span>
+                <span className="font-semibold text-rose-800">{venue.name}</span>
+                <br />
+                {venue.lines[1]}
+              </span>
+            </p>
+            <a href="#venue" className="btn-glossy mt-5 !px-6 !py-2.5 text-xs">
+              View Venue &amp; Map
+            </a>
           </div>
+        </Reveal>
+      </div>
 
-          <p className="mt-8 border-t border-rose-100 pt-5 text-center font-serif italic text-ink/60">
-            {invite.honour}
-          </p>
-        </div>
+      <Reveal>
+        <p className="mx-auto mt-10 max-w-2xl border-t border-rose-100 pt-6 text-center font-serif italic text-ink/60">
+          {invite.honour}
+        </p>
       </Reveal>
     </section>
   );
@@ -90,7 +86,7 @@ export default function WeddingSection() {
 
 function Clock() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-rose-500">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="shrink-0 text-rose-500">
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
       <path d="M12 7v5l3 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>

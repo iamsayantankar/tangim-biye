@@ -4,13 +4,12 @@ import { motion } from "framer-motion";
 import { events, haldiVenue } from "@/lib/data";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
-import { MehendiGirl } from "./Illustrations";
 
 const FLOATERS = [
-  { l: "9%", t: "20%", s: 30, d: 0 },
-  { l: "86%", t: "24%", s: 24, d: 1 },
-  { l: "14%", t: "76%", s: 22, d: 2 },
-  { l: "84%", t: "78%", s: 28, d: 0.5 },
+  { l: "9%", t: "18%", s: 30, d: 0 },
+  { l: "87%", t: "22%", s: 24, d: 1 },
+  { l: "13%", t: "80%", s: 22, d: 2 },
+  { l: "85%", t: "82%", s: 28, d: 0.5 },
 ];
 
 function Paisley({ size = 26 }) {
@@ -49,7 +48,7 @@ export default function MehendiSection() {
         </motion.div>
       ))}
 
-      <div className="relative z-10 mx-auto max-w-3xl px-5 text-center">
+      <div className="relative z-10 mx-auto max-w-4xl px-5 text-center">
         <Reveal>
           <p className="eyebrow text-mehendi-700">The Henna Night</p>
           <h2 className="mt-2 bg-mehendi-sheen shimmer-text font-script text-5xl sm:text-7xl">
@@ -60,45 +59,48 @@ export default function MehendiSection() {
           </p>
         </Reveal>
 
+        <Reveal from="scale" className="mt-8">
+          <figure className="group relative mx-auto max-w-2xl overflow-hidden rounded-[2rem] border-[5px] border-mehendi-200 shadow-[0_30px_75px_-28px_rgba(86,90,31,0.6)]">
+            <span className="pointer-events-none absolute inset-0 z-10 rounded-[calc(2rem-5px)] ring-1 ring-inset ring-white/40" />
+            <img
+              src="/img/mehendi.webp"
+              alt="Mehendi Night of Nowrin & Azahar"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              className="block w-full transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+            />
+          </figure>
+        </Reveal>
+
         <Ornament className="my-8" color="#565a1f" />
 
-        <Reveal from="scale">
-          <div className="mx-auto max-w-xl rounded-[2rem] border border-mehendi-300/70 bg-white/60 px-7 py-9 shadow-[0_18px_50px_-18px_rgba(86,90,31,0.4)] backdrop-blur-xl">
-            <motion.div
-              className="mx-auto -mt-3 mb-2 w-44 sm:w-52"
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <MehendiGirl className="h-full w-full" />
-            </motion.div>
-            <div className="flex flex-col items-center justify-center gap-2">
-              <p className="font-body text-sm uppercase tracking-[0.25em] text-mehendi-600">
-                {e.day} Night
-              </p>
-              <p className="font-display text-6xl font-bold text-mehendi-700">
-                13
-              </p>
-              <p className="font-display text-xl text-mehendi-600">
-                August 2026
-              </p>
-              <p className="mt-2 font-serif text-lg text-ink/70">
-                {e.time} · {e.note}
-              </p>
-              <p className="mt-3 flex items-center justify-center gap-1.5 font-serif text-base text-mehendi-700">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M3 11.2 12 4l9 7.2M5.5 9.8V20h13V9.8"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                {haldiVenue.name}
-              </p>
-              <p className="font-serif text-sm text-ink/55">
-                {haldiVenue.lines[0]}, Midnapore
-              </p>
+        <Reveal>
+          <div className="mx-auto max-w-2xl rounded-[2rem] border border-mehendi-300/70 bg-white/60 px-6 py-7 shadow-[0_18px_50px_-18px_rgba(86,90,31,0.4)] backdrop-blur-xl">
+            <div className="grid gap-5 text-center sm:grid-cols-3 sm:divide-x sm:divide-mehendi-200">
+              <div>
+                <p className="eyebrow text-mehendi-600">When</p>
+                <p className="mt-1 font-display text-2xl text-mehendi-700">
+                  {e.day}
+                </p>
+                <p className="font-serif text-ink/70">13 August 2026</p>
+              </div>
+              <div>
+                <p className="eyebrow text-mehendi-600">Time</p>
+                <p className="mt-1 font-display text-2xl text-mehendi-700">
+                  Night
+                </p>
+                <p className="font-serif text-ink/70">{e.time}</p>
+              </div>
+              <div>
+                <p className="eyebrow text-mehendi-600">Venue</p>
+                <p className="mt-1 font-display text-2xl text-mehendi-700">
+                  At Our Residence
+                </p>
+                <p className="font-serif text-ink/70">
+                  {haldiVenue.lines[0]}, Midnapore
+                </p>
+              </div>
             </div>
           </div>
         </Reveal>

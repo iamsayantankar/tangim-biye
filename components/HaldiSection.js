@@ -5,7 +5,13 @@ import { motion } from "framer-motion";
 import { events, haldiVenue } from "@/lib/data";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
-import { HaldiCouple } from "./Illustrations";
+
+const MARIGOLDS = [
+  { l: "6%", t: "16%", s: 40, d: 0 },
+  { l: "90%", t: "22%", s: 30, d: 1 },
+  { l: "12%", t: "80%", s: 26, d: 2 },
+  { l: "86%", t: "82%", s: 36, d: 0.5 },
+];
 
 export default function HaldiSection() {
   const e = events.haldi;
@@ -14,16 +20,9 @@ export default function HaldiSection() {
       id="haldi"
       className="relative overflow-hidden vignette-gold py-20 sm:py-28"
     >
-      {/* the colour shifts from rose into marigold here */}
       <div className="pointer-events-none absolute inset-x-0 -top-1 h-24 bg-gradient-to-b from-cream to-transparent" />
 
-      {/* floating marigolds */}
-      {[
-        { l: "8%", t: "18%", s: 40, d: 0 },
-        { l: "88%", t: "26%", s: 30, d: 1 },
-        { l: "15%", t: "78%", s: 26, d: 2 },
-        { l: "82%", t: "80%", s: 36, d: 0.5 },
-      ].map((m, i) => (
+      {MARIGOLDS.map((m, i) => (
         <motion.div
           key={i}
           className="absolute"
@@ -35,56 +34,59 @@ export default function HaldiSection() {
         </motion.div>
       ))}
 
-      <div className="relative z-10 mx-auto max-w-3xl px-5 text-center">
+      <div className="relative z-10 mx-auto max-w-4xl px-5 text-center">
         <Reveal>
           <p className="eyebrow text-marigold-600">The Festival of Gold</p>
           <h2 className="mt-2 bg-marigold-sheen shimmer-text font-script text-5xl sm:text-7xl">
-            Haldi Night
+            Haldi Ceremony
           </h2>
           <p className="mt-2 font-serif text-lg italic text-ink/60">
             {e.tagline}
           </p>
         </Reveal>
 
+        <Reveal from="scale" className="mt-8">
+          <figure className="group relative mx-auto max-w-2xl overflow-hidden rounded-[2rem] border-[5px] border-marigold-200 shadow-[0_30px_75px_-28px_rgba(234,140,10,0.65)]">
+            <span className="pointer-events-none absolute inset-0 z-10 rounded-[calc(2rem-5px)] ring-1 ring-inset ring-white/40" />
+            <img
+              src="/img/haldi.webp"
+              alt="Haldi Ceremony of Nowrin & Azahar"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              className="block w-full transition-transform duration-[1.4s] ease-out group-hover:scale-105"
+            />
+          </figure>
+        </Reveal>
+
         <Ornament className="my-8" color="#ea8c0a" />
 
-        <Reveal from="scale">
-          <div className="glass-gold mx-auto max-w-xl px-7 py-9">
-            <motion.div
-              className="mx-auto -mt-3 mb-2 w-44 sm:w-52"
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <HaldiCouple className="h-full w-full" />
-            </motion.div>
-            <div className="flex flex-col items-center justify-center gap-2">
-              <p className="font-body text-sm uppercase tracking-[0.25em] text-marigold-600">
-                {e.day} Evening
-              </p>
-              <p className="font-display text-6xl font-bold text-marigold-700">
-                13
-              </p>
-              <p className="font-display text-xl text-saffron-600">
-                August 2026
-              </p>
-              <p className="mt-2 font-serif text-lg text-ink/70">
-                {e.time} · {e.note}
-              </p>
-              <p className="mt-3 flex items-center justify-center gap-1.5 font-serif text-base text-saffron-700">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M3 11.2 12 4l9 7.2M5.5 9.8V20h13V9.8"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                {haldiVenue.name}
-              </p>
-              <p className="font-serif text-sm text-ink/55">
-                {haldiVenue.lines[0]}, Midnapore
-              </p>
+        <Reveal>
+          <div className="glass-gold mx-auto max-w-2xl px-6 py-7">
+            <div className="grid gap-5 text-center sm:grid-cols-3 sm:divide-x sm:divide-marigold-200">
+              <div>
+                <p className="eyebrow text-marigold-600">When</p>
+                <p className="mt-1 font-display text-2xl text-saffron-700">
+                  {e.day}
+                </p>
+                <p className="font-serif text-ink/70">13 August 2026</p>
+              </div>
+              <div>
+                <p className="eyebrow text-marigold-600">Time</p>
+                <p className="mt-1 font-display text-2xl text-saffron-700">
+                  Evening
+                </p>
+                <p className="font-serif text-ink/70">{e.time}</p>
+              </div>
+              <div>
+                <p className="eyebrow text-marigold-600">Venue</p>
+                <p className="mt-1 font-display text-2xl text-saffron-700">
+                  At Our Residence
+                </p>
+                <p className="font-serif text-ink/70">
+                  {haldiVenue.lines[0]}, Midnapore
+                </p>
+              </div>
             </div>
 
             <Link href="/haldi" className="btn-glossy btn-gold mt-7">

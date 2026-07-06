@@ -25,3 +25,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# large source images (compressed WebPs live in public/img/)
+/haldi.png
+/mehendi.png
+/marriage.png
+/bgmusic.mpeg
