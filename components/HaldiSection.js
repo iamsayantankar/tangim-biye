@@ -63,27 +63,31 @@ export default function HaldiSection() {
 
         <Reveal>
           <div className="glass-gold mx-auto max-w-2xl px-6 py-7">
-            <div className="grid gap-5 text-center sm:grid-cols-3 sm:divide-x sm:divide-marigold-200">
+            <div className="grid gap-6 text-center sm:grid-cols-3 sm:divide-x sm:divide-marigold-200">
               <div>
-                <p className="eyebrow text-marigold-600">When</p>
-                <p className="mt-1 font-display text-2xl text-saffron-700">
-                  {e.day}
+                <p className="eyebrow text-marigold-600">Date</p>
+                <p className="mt-2">
+                  <span className="inline-block rounded-lg bg-marigold-100 px-3 py-1 font-display text-lg font-bold text-marigold-700 sm:text-xl">
+                    13 August 2026
+                  </span>
                 </p>
-                <p className="font-serif text-ink/70">13 August 2026</p>
+                <p className="mt-1.5 font-serif text-sm text-ink/55">{e.day}</p>
               </div>
               <div>
                 <p className="eyebrow text-marigold-600">Time</p>
-                <p className="mt-1 font-display text-2xl text-saffron-700">
-                  Evening
+                <p className="mt-2">
+                  <span className="inline-block rounded-lg bg-marigold-100 px-3 py-1 font-display text-lg font-bold text-marigold-700 sm:text-xl">
+                    7:00 PM
+                  </span>
                 </p>
-                <p className="font-serif text-ink/70">{e.time}</p>
+                <p className="mt-1.5 font-serif text-sm text-ink/55">onwards</p>
               </div>
               <div>
                 <p className="eyebrow text-marigold-600">Venue</p>
-                <p className="mt-1 font-display text-2xl text-saffron-700">
+                <p className="mt-2 font-display text-xl font-semibold text-saffron-700">
                   At Our Residence
                 </p>
-                <p className="font-serif text-ink/70">
+                <p className="mt-1 font-serif text-sm text-ink/55">
                   {haldiVenue.lines[0]}, Midnapore
                 </p>
               </div>

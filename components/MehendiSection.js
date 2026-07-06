@@ -77,27 +77,31 @@ export default function MehendiSection() {
 
         <Reveal>
           <div className="mx-auto max-w-2xl rounded-[2rem] border border-mehendi-300/70 bg-white/60 px-6 py-7 shadow-[0_18px_50px_-18px_rgba(86,90,31,0.4)] backdrop-blur-xl">
-            <div className="grid gap-5 text-center sm:grid-cols-3 sm:divide-x sm:divide-mehendi-200">
+            <div className="grid gap-6 text-center sm:grid-cols-3 sm:divide-x sm:divide-mehendi-200">
               <div>
-                <p className="eyebrow text-mehendi-600">When</p>
-                <p className="mt-1 font-display text-2xl text-mehendi-700">
-                  {e.day}
+                <p className="eyebrow text-mehendi-600">Date</p>
+                <p className="mt-2">
+                  <span className="inline-block rounded-lg bg-mehendi-100 px-3 py-1 font-display text-lg font-bold text-mehendi-700 sm:text-xl">
+                    13 August 2026
+                  </span>
                 </p>
-                <p className="font-serif text-ink/70">13 August 2026</p>
+                <p className="mt-1.5 font-serif text-sm text-ink/55">{e.day}</p>
               </div>
               <div>
                 <p className="eyebrow text-mehendi-600">Time</p>
-                <p className="mt-1 font-display text-2xl text-mehendi-700">
-                  Night
+                <p className="mt-2">
+                  <span className="inline-block rounded-lg bg-mehendi-100 px-3 py-1 font-display text-lg font-bold text-mehendi-700 sm:text-xl">
+                    9:00 PM
+                  </span>
                 </p>
-                <p className="font-serif text-ink/70">{e.time}</p>
+                <p className="mt-1.5 font-serif text-sm text-ink/55">onwards</p>
               </div>
               <div>
                 <p className="eyebrow text-mehendi-600">Venue</p>
-                <p className="mt-1 font-display text-2xl text-mehendi-700">
+                <p className="mt-2 font-display text-xl font-semibold text-mehendi-700">
                   At Our Residence
                 </p>
-                <p className="font-serif text-ink/70">
+                <p className="mt-1 font-serif text-sm text-ink/55">
                   {haldiVenue.lines[0]}, Midnapore
                 </p>
               </div>

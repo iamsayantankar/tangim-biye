@@ -12,7 +12,7 @@ export default function WeddingSection() {
       <Reveal className="text-center">
         <p className="eyebrow text-rose-500">The Main Celebration</p>
         <h2 className="mt-2 bg-rose-sheen shimmer-text font-script text-5xl sm:text-7xl">
-          The Wedding
+          Wedding Ceremony
         </h2>
         <p className="mt-2 font-serif text-lg italic text-ink/60">
           {e.tagline}
@@ -46,21 +46,25 @@ export default function WeddingSection() {
               animate={{ x: ["0%", "400%"] }}
               transition={{ duration: 6, repeat: Infinity, repeatDelay: 3 }}
             />
-            <p className="font-body text-sm uppercase tracking-[0.25em] text-rose-500">
-              {e.day}
+            <p className="eyebrow text-rose-500">Date</p>
+            <p className="mt-2">
+              <span className="inline-block rounded-lg bg-rose-100 px-4 py-1.5 font-display text-xl font-bold text-rose-700 sm:text-2xl">
+                14 August 2026
+              </span>
             </p>
-            <p className="my-1 font-display text-7xl font-bold text-rose-700">
-              14
-            </p>
-            <p className="font-display text-xl text-rose-800">August 2026</p>
+            <p className="mt-1.5 font-serif text-sm text-ink/55">{e.day}</p>
 
-            <div className="mx-auto my-4 h-px w-16 bg-rose-200" />
-
-            <p className="flex items-center justify-center gap-2 font-serif text-lg text-ink/75">
-              <Clock />
-              {e.time}
+            <p className="eyebrow mt-6 text-rose-500">Time</p>
+            <p className="mt-2">
+              <span className="inline-block rounded-lg bg-rose-100 px-4 py-1.5 font-display text-xl font-bold text-rose-700 sm:text-2xl">
+                7:30 PM
+              </span>
             </p>
-            <p className="mt-2 flex items-start justify-center gap-2 font-serif text-lg leading-snug text-ink/75">
+            <p className="mt-1.5 font-serif text-sm text-ink/55">In sha Allah</p>
+
+            <div className="mx-auto my-5 h-px w-16 bg-rose-200" />
+
+            <p className="flex items-start justify-center gap-2 font-serif text-lg leading-snug text-ink/75">
               <Pin />
               <span>
                 <span className="font-semibold text-rose-800">{venue.name}</span>
@@ -84,14 +88,6 @@ export default function WeddingSection() {
   );
 }
 
-function Clock() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="shrink-0 text-rose-500">
-      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 7v5l3 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
 function Pin() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="mt-1 shrink-0 text-rose-500">
