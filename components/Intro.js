@@ -56,22 +56,22 @@ export default function Intro({ onOpen, accent = "rose" }) {
 
         {/* Monogram */}
         <motion.div
-          className="mt-3 flex items-center justify-center gap-4"
+          className="my-7 flex items-center justify-center gap-6 py-3 sm:gap-7"
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.7 }}
         >
-          <span className="font-script text-6xl text-rose-700 sm:text-7xl">
+          <span className="font-script text-7xl uppercase leading-none text-rose-700 sm:text-8xl">
             {lead.initial}
           </span>
           <motion.span
-            className="text-3xl text-rose-400"
+            className="text-3xl text-rose-400 sm:text-4xl"
             animate={{ scale: [1, 1.18, 1] }}
             transition={{ duration: 1.6, repeat: Infinity }}
           >
             &
           </motion.span>
-          <span className="font-script text-6xl text-rose-700 sm:text-7xl">
+          <span className="font-script text-7xl uppercase leading-none text-rose-700 sm:text-8xl">
             {partner.initial}
           </span>
         </motion.div>

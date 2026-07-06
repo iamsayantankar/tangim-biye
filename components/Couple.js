@@ -36,7 +36,7 @@ function PersonCard({ person, side }) {
       <div className="mx-auto my-4 h-px w-16 bg-rose-200" />
 
       <p className="font-serif text-base text-ink/70">
-        <span className="text-ink/45">Son/Daughter of</span>
+        <span className="text-ink/45">{person.lineage}</span>
         <br />
         <span className="text-lg font-medium text-rose-800">
           {person.father}
@@ -48,6 +48,17 @@ function PersonCard({ person, side }) {
           {person.mother}
         </span>
       </p>
+
+      {person.siblings && person.siblings.length > 0 && (
+        <p className="mt-4 font-serif text-base text-ink/70">
+          {person.siblings.map((s) => (
+            <span key={s.name} className="block">
+              <span className="text-ink/45">{s.relation}:</span>{" "}
+              <span className="font-medium text-rose-800">{s.name}</span>
+            </span>
+          ))}
+        </p>
+      )}
 
       <div className="mt-5 flex flex-col items-center gap-0.5 font-body text-sm text-ink/55">
         <svg

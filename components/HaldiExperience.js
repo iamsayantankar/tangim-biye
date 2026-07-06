@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import { lead, partner, events, haldiVenue, bengaliBlessing } from "@/lib/data";
+import { lead, partner, events, haldiVenue } from "@/lib/data";
 import Petals from "./Petals";
 import Reveal from "./Reveal";
 import Ornament from "./Ornament";
@@ -213,7 +213,6 @@ export default function HaldiExperience() {
               <p className="font-display text-2xl text-saffron-700">
                 {haldiVenue.name}
               </p>
-              <p className="text-xl text-saffron-600">{haldiVenue.bengali}</p>
               <p className="mt-1 font-serif text-lg leading-snug text-ink/70">
                 {haldiVenue.lines.map((l) => (
                   <span key={l} className="block">
@@ -266,7 +265,7 @@ export default function HaldiExperience() {
         <Ornament className="mb-8" color="#ea8c0a" />
         <Reveal>
           <p className="font-script text-4xl text-saffron-600 sm:text-5xl">
-            {bengaliBlessing}
+            Let&apos;s celebrate together
           </p>
           <Link href="/" className="btn-glossy mt-8">
             See the Wedding Details

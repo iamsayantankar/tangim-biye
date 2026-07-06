@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { blessingQuote, bengaliBlessing } from "@/lib/data";
+import { blessingQuote } from "@/lib/data";
 import Ornament from "./Ornament";
 
 export default function Blessing() {
@@ -45,13 +45,22 @@ export default function Blessing() {
         <Ornament className="my-9" color="#cf2b6b" />
 
         <motion.p
-          className="font-script text-3xl text-rose-600 sm:text-4xl"
+          className="font-script text-4xl text-rose-600 sm:text-5xl"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
         >
-          {bengaliBlessing}
+          Barakallahu Lakuma
+        </motion.p>
+        <motion.p
+          className="mt-2 font-body text-sm text-ink/50"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          May Allah bless you both, and unite you in goodness.
         </motion.p>
       </div>
     </section>

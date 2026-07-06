@@ -72,7 +72,7 @@ export default function HaldiSection() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                {haldiVenue.name} · {haldiVenue.bengali}
+                {haldiVenue.name}
               </p>
               <p className="font-serif text-sm text-ink/55">
                 {haldiVenue.lines[0]}, Midnapore

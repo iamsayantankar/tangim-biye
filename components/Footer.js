@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { lead, partner, credit, bengaliBlessing } from "@/lib/data";
+import { lead, partner, credit } from "@/lib/data";
 
 export default function Footer({ accent = "rose" }) {
   const isGold = accent === "marigold";
@@ -27,7 +27,7 @@ export default function Footer({ accent = "rose" }) {
         </div>
 
         <p className="font-serif text-xl italic text-ink/70">
-          {bengaliBlessing}
+          Your gracious presence will complete our joy.
         </p>
         <p className="mt-1 font-body text-sm text-ink/50">
           We can&apos;t wait to celebrate with you. JazakAllah Khair.
