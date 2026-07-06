@@ -1,6 +1,6 @@
 import "./globals.css";
 import {
-  Great_Vibes,
+  Akronim,
   Playfair_Display,
   Cormorant_Garamond,
   Jost,
@@ -8,7 +8,8 @@ import {
 } from "next/font/google";
 import MusicProvider from "@/components/MusicProvider";
 
-const script = Great_Vibes({
+// Decorative script used for the couple's names, monogram & headings.
+const script = Akronim({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-script",
